@@ -144,19 +144,15 @@ void wifi_setup() {
 
 
 /*
- * Build <li> string for all modes.
+ * Build comma separated string for all modes.
  */
 void modes_setup() {
 	modes = "";
 	uint8_t num_modes = sizeof(myModes) > 0 ? sizeof(myModes) : ws2812fx.getModeCount();
 	for(uint8_t i=0; i < num_modes; i++) {
 		uint8_t m = sizeof(myModes) > 0 ? myModes[i] : i;
-		// modes += "<li><a href='#' class='m' id='";
-		// modes += m;
-		// modes += "'>";
 		modes += ws2812fx.getModeName(m);
 		modes += ",";
-		// modes += "</a></li>";
 	}
 }
 
@@ -231,5 +227,5 @@ void srv_handle_set() {
 			}
 		}
 	}
-	server.send(200, "text/plain", "OK");
+	server.send(200, "text/plain", "Ok bro!");
 }
